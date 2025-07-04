@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SystemJS</title>
+    <!-- <script src="./src/hello.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.15.1/dist/system.min.js"></script>
+  </head>
+  <body>
+    <button id="hello-button">Hello</button>
+
+    <script>
+      const helloButton = document.querySelector("#hello-button");
+      helloButton.onclick = function () {
+        System.import("./src/hello.js").then(() => {
+          console.log("hello.js loaded");
+          sayHello();
+        });
+      };
+    </script>
+  </body>
+</html>
